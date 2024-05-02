@@ -1,112 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Pod</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            font-family: Sans-serif;
-            font-size: 20px;
-            color: #0B930;
-        }
-        header {
-            background-color: #000;
-            color: #00bf63;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        #logo {
-            
-            left: 50%;
-            
-            max-width: 800px;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            color: #000;
-        }
-        footer {
-            background-color: #000;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #04aa6d;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        #linkedin {
-            background-color: #0077b5;
-            color: #fff;
-        }
-        #Youtube {
-            background-color:  #FF0000;
-            color: #fff;
-        }
-        @media only screen and (max-width: 600px) {
-            header,
-            nav ul li {
-                font-size: 16px;
-            }
-        }
-        p {
-            text-align: justify;
-            line-height: 1.8;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        
-        <h1>Career Pod</h1>
-    </header>
-    <section id="welcome">
-    <img src="https://i.postimg.cc/Yqyf6jZY/CP-New-Linked-In-Banner1-2.png" alt="Career Pod Logo" id="logo">
-        <h2>Hey buddy,</h2>
-        <br> My name is <b>Raghul M</b>, the founder of Career Pod Community.
-        <br>
-        <p>Welcome to <b>"Career Pod"</b>, your launchpad to success! At Career Pod, where we fuel your career aspirations! we're dedicated to empowering students, fresh graduates, and career enthusiasts on their professional journey. We're more than just a community;
-            <br><br> I'm looking forward to extending this help to you, and I hope you get the most out of this initiative to provide career guidance to college students before graduation and Graduates to navigate through their career
-            <br><br> Yours sincerely,
-            <br><br> M Raghul <br> <i>Founder & Mentor, Careerpod </i></p>
-        <h3>Join Us : </h3>
-        <div class="buttons">
-            <a href="https://www.linkedin.com/company/career-pod/" target="_blank" id="linkedin">LinkedIn</a>
-            <a href="https://chat.whatsapp.com/BV82LHLBvC03GOjaGzbJ9M" target="_blank">WhatsApp</a>
-            <a href="https://www.youtube.com/@Carrerpod" target="_blank" id="Youtube">Youtube</a>
-        </div>
-    </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Primary Meta Tags -->
+		<title>Career Pod</title>
+		<meta name="title" content="Career Pod" />
+		<meta
+			name="description"
+			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
+		/>
 
-    <footer>
-        <p style="text-align: center">&copy; 2024 Career Pod. All rights reserved.</p>
-    </footer>
-</body>
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://careerpod.github.io" />
+		<meta property="og:title" content="Career Pod" />
+		<meta
+			property="og:description"
+			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
+		/>
+		<meta property="og:image" content="/images/thumbnail.jpeg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://careerpod.github.io" />
+		<meta property="twitter:title" content="Career Pod" />
+		<meta
+			property="twitter:description"
+			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
+		/>
+		<meta property="twitter:image" content="/images/thumbnail.jpeg" />
+
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Career Pod</h1>
+		</header>
+		<section id="welcome">
+			<div id="banner">
+				<img src="/images/banner.png" alt="Career Pod Banner" />
+			</div>
+			<h2>Hey buddy,</h2>
+			<p id="intro">
+				My name is <b>Raghul M,</b> the founder of Career Pod Community.
+			</p>
+			<p>
+				Welcome to <b>"Career Pod"</b>, your launchpad to success! At
+				Career Pod, where we fuel your career aspirations! we're
+				dedicated to empowering students, fresh graduates, and career
+				enthusiasts on their professional journey. We're more than just
+				a community;
+			</p>
+			<p>
+				I'm looking forward to extending this help to you, and I hope
+				you get the most out of this initiative to provide career
+				guidance to college students before graduation and Graduates to
+				navigate through their career.
+			</p>
+
+			<p id="salutations">
+				<span>Yours sincerely,</span><span>M Raghu,</span>
+				<i>Founder & Mentor, Careerpod </i>
+			</p>
+			<h3>Join Us :</h3>
+			<div id="socials">
+				<a
+					href="https://www.linkedin.com/company/career-pod/"
+					target="_blank"
+					id="linkedin"
+					>LinkedIn</a
+				>
+				<a
+					href="https://chat.whatsapp.com/BV82LHLBvC03GOjaGzbJ9M"
+					target="_blank"
+					>WhatsApp</a
+				>
+				<a
+					href="https://www.youtube.com/@Carrerpod"
+					target="_blank"
+					id="youtube"
+					>Youtube</a
+				>
+			</div>
+		</section>
+		<footer>
+			<p>&copy; 2024 Career Pod. All rights reserved.</p>
+		</footer>
+	</body>
 </html>
-
