@@ -3,51 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerPod Community</title>
+    <title>Career Pod</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Sans-serif;
+            font-size: 20px;
+            color: #0B930;
         }
-        h1, h2 {
-            color: #333;
+        header {
+            background-color: #000;
+            color: #00bf63;
+            padding: 20px;
+            text-align: center;
+            position: relative;
         }
-        p {
-            color: #666;
+        #logo {
+            
+            left: 50%;
+            
+            max-width: 800px;
         }
-        .btn {
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            color: #000;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
             display: inline-block;
+            margin: 0 10px;
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #04aa6d;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        #linkedin {
+            background-color: #0077b5;
+            color: #fff;
+        }
+        #Youtube {
+            background-color:  #FF0000;
+            color: #fff;
+        }
+        @media only screen and (max-width: 600px) {
+            header,
+            nav ul li {
+                font-size: 16px;
+            }
+        }
+        p {
+            text-align: justify;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
+    <header>
+        
+        <h1>Career Pod</h1>
+    </header>
+    <section id="welcome">
+    <img src="https://i.postimg.cc/Yqyf6jZY/CP-New-Linked-In-Banner1-2.png" alt="Career Pod Logo" id="logo">
+        <h2>Hey buddy,</h2>
+        <br> My name is <b>Raghul M</b>, the founder of Career Pod Community.
+        <br>
+        <p>Welcome to <b>"Career Pod"</b>, your launchpad to success! At Career Pod, where we fuel your career aspirations! we're dedicated to empowering students, fresh graduates, and career enthusiasts on their professional journey. We're more than just a community;
+            <br><br> I'm looking forward to extending this help to you, and I hope you get the most out of this initiative to provide career guidance to college students before graduation and Graduates to navigate through their career
+            <br><br> Yours sincerely,
+            <br><br> M Raghul <br> <i>Founder & Mentor, Careerpod </i></p>
+        <h3>Join Us : </h3>
+        <div class="buttons">
+            <a href="https://www.linkedin.com/company/career-pod/" target="_blank" id="linkedin">LinkedIn</a>
+            <a href="https://chat.whatsapp.com/BV82LHLBvC03GOjaGzbJ9M" target="_blank">WhatsApp</a>
+            <a href="https://www.youtube.com/@Carrerpod" target="_blank" id="Youtube">Youtube</a>
+        </div>
+    </section>
 
-<div class="container">
-    <h1>Welcome to CareerPod Community!</h1>
-    <p>Connect with like-minded individuals, share career advice, and explore opportunities.</p>
-    <h2>Join the Community</h2>
-    <p>Ready to take the next step in your career journey?</p>
-    <a href="https://chat.whatsapp.com/BV82LHLBvC03GOjaGzbJ9M" class="btn" target="_blank">Join here</a>
-</div>
-
+    <footer>
+        <p style="text-align: center">&copy; 2024 Career Pod. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
