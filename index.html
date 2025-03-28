@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- Primary Meta Tags -->
-		<title>Career Pod</title>
-		<meta name="title" content="Career Pod" />
-		<meta
-			name="description"
-			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
-		/>
-
-		<!-- Open Graph / Facebook -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPod</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://careerpod.github.io" />
 		<meta property="og:title" content="Career Pod" />
@@ -30,62 +26,163 @@
 			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
 		/>
 		<meta property="twitter:image" content="/images/thumbnail.jpeg" />
+    <style>
+        :root {
+            --primary-color: #00bf63;
+        }
+        body {
+            font-family: 'Roboto', sans-serif; /* Apply Roboto font to the body */
+        }
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .social-icon {
+            width: 24px; /* Set a fixed width for the icons */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .linkedin-icon {
+            color: #0077b5; /* LinkedIn blue */
+        }
+        .gmail-icon {
+            color: #ffffff; /* Gmail white */
+        }
+        .youtube-icon {
+            color: #ff0000; /* YouTube red */
+        }
+        .whatsapp-icon {
+            color: #25D366; /* WhatsApp green */
+        }
+        .social-icon:hover {
+            opacity: 0.8; /* Change opacity on hover */
+        }
+        h3 {
+            font-weight: bold; /* Make headings bold */
+            color: #00bf63; /* Set headings to green */
+            margin-bottom: 0.5rem; /* Add space below the heading */
+        }
+        .contact-info {
+            color: #ffffff; /* Set email and phone text to white */
+        }
+        .follow-us {
+            display: flex;
+            flex-direction: column; /* Stack heading and icons vertically */
+            align-items: flex-start; /* Align items to the left */
+            margin-bottom: 1rem; /* Add some space below the heading */
+        }
+        .hero-section {
+            padding: 2rem; /* Add padding to the hero section */
+        }
+        .hero-image {
+            width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 1200px; /* Set a maximum width for larger screens */
+            max-height: 400px; /* Set a maximum height to prevent overlap */
+            object-fit: contain; /* Ensure the entire image is visible */
+            margin: 0 0 1.5rem 0; 
+            margin-top: -240px; /* Reduce top margin */
+        }
+        @media (max-width: 768px) {
+            .hero-image {
+                max-height: 300px;
+                margin-top: -300px; /* Adjust max height for mobile view */
+            }
+        }
+        .career-buddy {
+            font-size: 1.5rem; /* Increase font size for "Your Career Buddy" */
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <!-- Navbar -->
+    <nav class="p-5 bg-black flex justify-between items-center">
+        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto">
+        <!-- <img src="https://github.com/user-attachments/assets/178cc49c-4875-42c0-ac9f-3cc00535c9e3" alt="Careerpod" class="responsive-image h-10"> -->
 
-		<link rel="stylesheet" href="/style.css" />
-	</head>
-	<body>
-		<header>
-			<h1>Career Pod</h1>
-		</header>
-		<section id="welcome">
-			<div id="banner">
-				<img src="/images/banner.png" alt="Career Pod Banner" />
-			</div>
-			<h2>Hey buddy,</h2>
-			<p id="intro">
-				My name is <b>Raghul M,</b> the founder of Career Pod Community.
-			</p>
-			<p>
-				Welcome to <b>"Career Pod"</b>, your launchpad to success! At
-				Career Pod, where we fuel your career aspirations! we're
-				dedicated to empowering students, fresh graduates, and career
-				enthusiasts on their professional journey. We're more than just
-				a community;
-			</p>
-			<p>
-				I'm looking forward to extending this help to you, and I hope
-				you get the most out of this initiative to provide career
-				guidance to college students before graduation and Graduates to
-				navigate through their career.
-			</p>
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-white text-3xl focus:outline-none">
+                &#9776;
+            </button>
+        </div>
+        <ul id="menu" class="hidden md:flex space-x-6">
+            <li><a href="#home" class="hover:text-green-400 text-white">Home</a></li>
+            <li><a href="#" class="hover:text-green-400 text-white">Showcase</a></li>
+            <li><a href="contact.html" class="hover:text-green-400 text-white">Events</a></li>
+            <li><a href="team.html" class="hover:text-green-400 text-white">Team & Partners</a></li>
+            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400">Social Profiles</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-1/2 h-full bg-black text-white hidden flex flex-col p-5 space-y-4">
+        <button id="close-menu" class="text-white text-3xl self-end">&times;</button>
+        <a href="#home" class="hover:text-green-400">Home</a>
+        <a href="team.html" class="hover:text-green-400">Showcase</a>
+        <a href="contact.html" class="hover:text-green-400">Events</a>
+        <a href="team.html" class="hover:text-green-400">Team & Partners</a>
+        <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400">Social Profiles</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section h-screen flex flex-col justify-center items-center text-center">
+        <img src="https://github.com/user-attachments/assets/1c988c13-492a-46de-ab40-024dc41be8c9" alt="Main Image" class="hero-image mt-20">
+        <h2 class="text-4xl font-bold mt-4">Welcome to CareerPod Community!</h2>
+        <p class="career-buddy mt-4 text-green-600">Your Career Buddy :)</p>
+        <p class="text-gray-800 font-semibold text-justify mt-4 mx-4">We are excited to have you here! At CareerPod, we are a dynamic and growing tech community dedicated to empowering students and professionals alike. Our mission is to teach, guide, and help one another as we navigate the ever-evolving tech industry. We are passionate about raising awareness of the importance of proper education, fostering open-source collaboration, and creating new opportunities for growth. Don't let time slip away—join us today and become part of a supportive community focused on knowledge-sharing, learning, and unlocking your full potential!</p>
+        <a href="#join" class="mt-6 mb-15 px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-400">Join Now</a>
+    </section>
 
-			<p id="salutations">
-				<span>Yours sincerely,</span><span>M Raghul,</span>
-				<i>Founder & Mentor, Careerpod </i>
-			</p>
-			<h3>Join Us :</h3>
-			<div id="socials">
-				<a
-					href="https://www.linkedin.com/company/career-pod/"
-					target="_blank"
-					id="linkedin"
-					>LinkedIn</a
-				>
-				<a
-					href="https://chat.whatsapp.com/BV82LHLBvC03GOjaGzbJ9M"
-					target="_blank"
-					>WhatsApp</a
-				>
-				<a
-					href="https://www.youtube.com/@Careerpod"
-					target="_blank"
-					id="youtube"
-					>Youtube</a
-				>
-			</div>
-		</section>
-		<footer>
-			<p>&copy; 2024 Career Pod. All rights reserved.</p>
-		</footer>
-	</body>
+    
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 pt-10 mt-20">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between">
+            <div class="mb-4 md:mb-0">
+                <h3 class="text-lg">Contact Us</h3>
+                <p class="contact-info">Email : <a href="mailto:info@careerpod.com" class="text-green-400">careerpodcommunity@gmail.com</a></p>
+                <p class="contact-info">Phone : <a href="tel:+1234567890" class="text-green-400">+91 234567890</a></p>
+            </div>
+            <div class="mb-4 md:mb-0 follow-us">
+                <h3>Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a id="linkedin" href="https://www.linkedin.com/company/career-pod/" target="_blank">
+                        <img src="https://github.com/user-attachments/assets/e17ee72a-1d74-494b-8b3c-d4bd9bd9079c" alt="LinkedIn" class="social-icon linkedin-icon">
+                    </a>
+                    <a id="youtube" href="https://www.youtube.com/@Careerpod" target="_blank">
+                        <img src="https://github.com/user-attachments/assets/750af1c5-9e97-4f5b-bf2f-9753e9360a8a" alt="YouTube" class="social-icon youtube-icon">
+                    </a>
+                    <a id="whatsapp" href="https://chat.whatsapp.com/BuyZd52KkchCSl19nzqsYr" target="_blank">
+                        <img src="https://github.com/user-attachments/assets/87ef1e57-4aa1-437d-b68d-124351a959d0" alt="WhatsApp" class="social-icon whatsapp-icon">
+                    </a>
+                    <a id="email" href="mailto:careerpodcommunity@gmail.com">
+                        <img src="https://github.com/user-attachments/assets/47c207da-6fa4-402f-a7ad-73df065f6b5c" alt="Gmail" class="social-icon gmail-icon">
+                    </a>
+                    <a id="instagram" href="https://www.instagram.com/careerpod_community" target="_blank">
+                        <img src="https://github.com/user-attachments/assets/2ae7eac7-0908-4b36-82e2-488c603afdf0" alt="Instagram" class="social-icon">
+                    </a>
+                    <a id="topmate" href="https://topmate.io/m_raghul" target="_blank">
+                        <img src="https://github.com/user-attachments/assets/6a114b06-7d73-4b5b-901d-35c8d113f2b5" alt="Topmate" class="social-icon"> <!-- Topmate custom image -->
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg">Location</h3>
+                
+                <p>Chennai, Tamilnadu, India</p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p>&copy; 2025 CareerPod. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.remove("hidden");
+        });
+        document.getElementById("close-menu").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.add("hidden");
+        });
+    </script>
+</body>
 </html>
