@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Student Testimonials - CareerPod</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .testimonial-circle {
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        .testimonial-circle:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .quote-mark {
+            font-size: 4rem;
+            line-height: 1;
+            font-family: serif;
+            color: #00bf63;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-white text-black flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="p-5 bg-black flex justify-between items-center">
+        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto">
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-white text-3xl focus:outline-none">&#9776;</button>
+        </div>
+        <ul id="menu" class="hidden md:flex space-x-6">
+            <li><a href="index.html" class="hover:text-green-400 text-white">Home</a></li>
+            <li><a href="#" class="hover:text-green-400 text-white">Showcase</a></li>
+            <li><a href="events.html" class="hover:text-green-400 text-white">Events</a></li>
+            <li><a href="team.html" class="hover:text-green-400 text-white">Team & Partners</a></li>
+            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400">Social Profiles</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-1/2 h-full bg-black text-white hidden flex flex-col p-5 space-y-4 z-50">
+        <button id="close-menu" class="text-white text-3xl self-end">&times;</button>
+        <a href="index.html" class="hover:text-green-400">Home</a>
+        <a href="#" class="hover:text-green-400">Showcase</a>
+        <a href="events.html" class="hover:text-green-400">Events</a>
+        <a href="team.html" class="hover:text-green-400">Team & Partners</a>
+        <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 text-center">Social Profiles</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-white text-black py-20 px-4 border-b">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Student Success Stories</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hear from our community members about their journey and growth with CareerPod</p>
+        </div>
+    </section>
+
+    <!-- Students Testimonial Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-16 text-green-500">What Our Students Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Student Circle 1 -->
+                <div class="testimonial-circle flex flex-col items-center text-center">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=200" 
+                             alt="Student 1" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"The web development workshops were game-changing. I learned practical skills that I use daily in my job."</p>
+                        <h3 class="font-bold text-green-500">Rahul Kumar</h3>
+                        <p class="text-gray-500 text-sm">Frontend Developer</p>
+                    </div>
+                </div>
+
+                <!-- Student Circle 2 -->
+                <div class="testimonial-circle flex flex-col items-center text-center mt-12 md:mt-0">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=200" 
+                             alt="Student 2" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"CareerPod's mentorship transformed my career path. I gained confidence and landed my dream role."</p>
+                        <h3 class="font-bold text-green-500">Ananya Patel</h3>
+                        <p class="text-gray-500 text-sm">Data Scientist</p>
+                    </div>
+                </div>
+
+                <!-- Student Circle 3 -->
+                <div class="testimonial-circle flex flex-col items-center text-center">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?w=200" 
+                             alt="Student 3" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"The community support and networking opportunities here are unmatched. It's more than just learning!"</p>
+                        <h3 class="font-bold text-green-500">Arun Verma</h3>
+                        <p class="text-gray-500 text-sm">Full Stack Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Testimonial Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-16 text-green-500">What Our Mentors Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Mentor Circle 1 -->
+                <div class="testimonial-circle flex flex-col items-center text-center">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" 
+                             alt="Mentor 1" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"Being a mentor at CareerPod has been incredibly rewarding. Watching students grow and succeed makes it all worthwhile."</p>
+                        <h3 class="font-bold text-green-500">Vikram Mehta</h3>
+                        <p class="text-gray-500 text-sm">Senior Software Engineer @ Microsoft</p>
+                    </div>
+                </div>
+
+                <!-- Mentor Circle 2 -->
+                <div class="testimonial-circle flex flex-col items-center text-center mt-12 md:mt-0">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200" 
+                             alt="Mentor 2" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"The enthusiasm and dedication of our students inspire me. It's a joy to guide the next generation of tech leaders."</p>
+                        <h3 class="font-bold text-green-500">Priya Reddy</h3>
+                        <p class="text-gray-500 text-sm">Tech Lead @ Amazon</p>
+                    </div>
+                </div>
+
+                <!-- Mentor Circle 3 -->
+                <div class="testimonial-circle flex flex-col items-center text-center">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-green-500 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" 
+                             alt="Mentor 3" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm">
+                        <p class="text-gray-600 mb-4">"CareerPod creates a perfect environment for knowledge sharing. The community's growth has been phenomenal."</p>
+                        <h3 class="font-bold text-green-500">Rajesh Kumar</h3>
+                        <p class="text-gray-500 text-sm">Engineering Manager @ Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-4 text-center">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-gray-600 mb-8">Join our community and build your tech career with expert guidance</p>
+            <a href="#" class="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition-colors inline-block">
+                Join CareerPod Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center p-5 bg-black text-white mt-auto">
+        <p>&copy; 2025 CareerPod. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.remove("hidden");
+        });
+        document.getElementById("close-menu").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.add("hidden");
+        });
+    </script>
+</body>
+</html>
