@@ -1,99 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CareerPod</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://careerpod.github.io" />
-		<meta property="og:title" content="Career Pod" />
-		<meta
-			property="og:description"
-			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
-		/>
-		<meta property="og:image" content="/images/thumbnail.jpeg" />
-
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://careerpod.github.io" />
-		<meta property="twitter:title" content="Career Pod" />
-		<meta
-			property="twitter:description"
-			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
-		/>
-		<meta property="twitter:image" content="/images/thumbnail.jpeg" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://careerpod.github.io" />
+    <meta property="og:title" content="Career Pod" />
+    <meta property="og:description" content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!" />
+    <meta property="og:image" content="/images/thumbnail.jpeg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://careerpod.github.io" />
+    <meta property="twitter:title" content="Career Pod" />
+    <meta property="twitter:description" content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!" />
+    <meta property="twitter:image" content="/images/thumbnail.jpeg" />
     <style>
         :root {
             --primary-color: #00bf63;
         }
         body {
-            font-family: 'Roboto', sans-serif; /* Apply Roboto font to the body */
+            font-family: 'Roboto', sans-serif;
         }
         .responsive-image {
             max-width: 100%;
             height: auto;
         }
         .social-icon {
-            width: 24px; /* Set a fixed width for the icons */
-            height: auto; /* Maintain aspect ratio */
+            width: 24px;
+            height: auto;
         }
-        .linkedin-icon {
-            color: #0077b5; /* LinkedIn blue */
-        }
-        .gmail-icon {
-            color: #ffffff; /* Gmail white */
-        }
-        .youtube-icon {
-            color: #ff0000; /* YouTube red */
-        }
-        .whatsapp-icon {
-            color: #25D366; /* WhatsApp green */
-        }
-        .social-icon:hover {
-            opacity: 0.8; /* Change opacity on hover */
-        }
+        .linkedin-icon { color: #0077b5; }
+        .gmail-icon { color: #ffffff; }
+        .youtube-icon { color: #ff0000; }
+        .whatsapp-icon { color: #25D366; }
+        .social-icon:hover { opacity: 0.8; }
         h3 {
-            font-weight: bold; /* Make headings bold */
-            color: #00bf63; /* Set headings to green */
-            margin-bottom: 0.5rem; /* Add space below the heading */
+            font-weight: bold;
+            color: var(--primary-color);
         }
-        .contact-info {
-            color: #ffffff; /* Set email and phone text to white */
-        }
+        .contact-info { color: #ffffff; }
         .follow-us {
             display: flex;
-            flex-direction: column; /* Stack heading and icons vertically */
-            align-items: flex-start; /* Align items to the left */
-            margin-bottom: 1rem; /* Add some space below the heading */
+            flex-direction: column;
+            align-items: flex-start;
         }
         .hero-section {
-            padding: 2rem; /* Add padding to the hero section */
+            padding: 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .hero-image {
-            width: 100%; /* Make the image responsive */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 1200px; /* Set a maximum width for larger screens */
-            max-height: 400px; /* Set a maximum height to prevent overlap */
-            object-fit: contain; /* Ensure the entire image is visible */
-            margin: 0 0 1.5rem 0; 
-            margin-top: -240px; /* Reduce top margin */
+            width: 40%;
+            height: auto;
+            max-width: 1200px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
         }
         @media (max-width: 768px) {
             .hero-image {
-                max-height: 300px;
-                margin-top: -300px; /* Adjust max height for mobile view */
+                max-height: 250px;
+            }
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+            .career-buddy {
+                font-size: 1.2rem;
             }
         }
-        .career-buddy {
-            font-size: 1.5rem; /* Increase font size for "Your Career Buddy" */
+        @media (max-width: 480px) {
+            .hero-image {
+                max-height: 200px;
+            }
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+            .career-buddy {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body class="bg-white text-black">
+    <!-- Responsive code remains here without changing content -->
     <!-- Navbar -->
     <nav class="p-5 bg-black flex justify-between items-center">
         <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto">
@@ -186,3 +178,4 @@
     </script>
 </body>
 </html>
+
