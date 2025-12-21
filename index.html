@@ -3,246 +3,524 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerPod</title>
+    <title>CareerPod - Your Career Buddy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
     		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://careerpod.github.io" />
 		<meta property="og:title" content="Career Pod" />
-		<meta
-			property="og:description"
-			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
-		/>
+    <meta property="og:description" content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!" />
 		<meta property="og:image" content="/images/thumbnail.jpeg" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://careerpod.github.io" />
 		<meta property="twitter:title" content="Career Pod" />
-		<meta
-			property="twitter:description"
-			content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!"
-		/>
+    <meta property="twitter:description" content="Join Career Pod for career guidance and mentorship on your professional journey. Founded by Raghul M, we're dedicated to empowering students and graduates to achieve success. Let us be your launchpad to a fulfilling career!" />
 		<meta property="twitter:image" content="/images/thumbnail.jpeg" />
+    
     <style>
         :root {
             --primary-color: #00bf63;
+            --primary-dark: #00a050;
         }
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Roboto', sans-serif; /* Apply Roboto font to the body */
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
         }
-        .responsive-image {
-            max-width: 100%;
-            height: auto;
+        
+        /* Navbar Styles */
+        nav {
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-        .social-icon {
-            width: 24px; /* Set a fixed width for the icons */
-            height: auto; /* Maintain aspect ratio */
+        
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 191, 99, 0.1);
         }
-        .linkedin-icon {
-            color: #0077b5; /* LinkedIn blue */
+        
+        /* Hero Section */
+        .hero-gradient {
+            background: #ffffff;
         }
-        .gmail-icon {
-            color: #ffffff; /* Gmail white */
+        
+        /* Feature Cards */
+        .feature-card {
+            transition: all 0.2s ease;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
-        .youtube-icon {
-            color: #ff0000; /* YouTube red */
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 191, 99, 0.1);
         }
-        .whatsapp-icon {
-            color: #25D366; /* WhatsApp green */
-        }
-        .social-icon:hover {
-            opacity: 0.8; /* Change opacity on hover */
-        }
-        h3 {
-            font-weight: bold; /* Make headings bold */
-            color: #00bf63; /* Set headings to green */
-            margin-bottom: 0.5rem; /* Add space below the heading */
-        }
-        .contact-info {
-            color: #ffffff; /* Set email and phone text to white */
-        }
-        .follow-us {
+        
+        .feature-icon {
             display: flex;
-            flex-direction: column; /* Stack heading and icons vertically */
-            align-items: flex-start; /* Align items to the left */
-            margin-bottom: 1rem; /* Add some space below the heading */
-        }
-        .hero-section {
-            padding: 2rem;
-            min-height: 100vh;
-            position: relative;
-            padding-top: 6rem;
-        }
-        .hero-image {
-            width: 100%;
-            height: auto;
-            max-width: 1200px;
-            max-height: 400px;
-            object-fit: contain;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto;
-            margin-top: 0; /* Remove negative margin */
+            transition: all 0.2s ease;
         }
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 1rem;
-                padding-top: 5rem;
+        
+        .feature-icon span {
+            filter: grayscale(0);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.05);
+        }
+        
+        /* Stats Section */
+        .stats-wrapper {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        
+        .stats-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .stats-container:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0%, 100% {
+                transform: translateX(0);
             }
-            .hero-image {
-                max-height: 200px;
-                margin-top: 0; /* Remove negative margin */
-                margin-bottom: 1rem;
+            25% {
+                transform: translateX(-10px);
             }
-            .text-4xl {
+            50% {
+                transform: translateX(0);
+            }
+            75% {
+                transform: translateX(10px);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .stats-container {
+                gap: 2rem;
+            }
+        }
+        
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            min-width: 200px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 191, 99, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .stat-number {
+            transition: all 0.3s ease;
                 font-size: 1.75rem;
-                line-height: 1.3;
-            }
-            .career-buddy {
-                font-size: 1.25rem;
-            }
-            .text-gray-800 {
-                font-size: 0.9rem;
-                line-height: 1.5;
-            }
+            line-height: 1.2;
         }
-        .career-buddy {
-            font-size: 1.5rem; /* Increase font size for "Your Career Buddy" */
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
         }
-        /* Fix mobile menu styles */
+        
+        .stat-card:hover .stat-number {
+            color: var(--primary-dark);
+        }
+        
+        /* CTA Section */
+        .cta-gradient {
+            background: var(--primary-color);
+        }
+        
+        /* Social Icons */
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            transition: all 0.2s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        
+        /* Mobile Menu */
         #mobile-menu {
             position: fixed;
             top: 0;
             left: 0;
             width: 75%;
             height: 100vh;
-            background-color: black;
-            z-index: 9999; /* Ensure menu is above all content */
-            display: none; /* Hide by default */
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            z-index: 9999;
+            display: none;
             padding: 2rem 1rem;
             overflow-y: auto;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
         }
 
         #mobile-menu.active {
             display: flex;
             flex-direction: column;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
 
-        /* Add overlay when menu is open */
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 9998;
             display: none;
+            backdrop-filter: blur(5px);
         }
 
         .menu-overlay.active {
             display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Update navbar z-index */
         nav {
             position: relative;
             z-index: 9997;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: var(--primary-color);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 191, 99, 0.3);
+        }
+        
+        /* Section Spacing */
+        section {
+            scroll-margin-top: 80px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-image {
+                max-height: 200px;
+            }
         }
     </style>
 </head>
 <body class="bg-white text-black">
     <!-- Navbar -->
-    <nav class="p-5 bg-black flex justify-between items-center">
-        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto">
-        <!-- <img src="https://github.com/user-attachments/assets/178cc49c-4875-42c0-ac9f-3cc00535c9e3" alt="Careerpod" class="responsive-image h-10"> -->
+    <nav class="fixed top-0 left-0 right-0 p-5 bg-black flex justify-between items-center z-50">
+        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto cursor-pointer" onclick="window.location.href='index.html'">
 
         <div class="md:hidden">
-            <button id="menu-btn" class="text-white text-3xl focus:outline-none">
+            <button id="menu-btn" class="text-white text-3xl focus:outline-none transition-transform hover:scale-110">
                 &#9776;
             </button>
         </div>
-        <ul id="menu" class="hidden md:flex space-x-6">
-            <li><a href="index.html" class="hover:text-green-400 text-white">Home</a></li>
-            <li><a href="testimonials.html" class="hover:text-green-400 text-white">Showcase</a></li>
-            <li><a href="events.html" class="hover:text-green-400 text-white">Events</a></li>
-            <li><a href="team.html" class="hover:text-green-400 text-white">Team & Partners</a></li>
-            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400">Social Profiles</a></li>
+        
+        <ul id="menu" class="hidden md:flex space-x-6 items-center">
+            <li><a href="index.html" class="hover:text-green-400 text-white transition-colors font-medium">Home</a></li>
+            <li><a href="testimonials.html" class="hover:text-green-400 text-white transition-colors font-medium">Showcase</a></li>
+            <li><a href="events.html" class="hover:text-green-400 text-white transition-colors font-medium">Events</a></li>
+            <li><a href="team.html" class="hover:text-green-400 text-white transition-colors font-medium">Team & Partners</a></li>
+            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 transition-all font-medium">Social Profiles</a></li>
         </ul>
     </nav>
     
-    <!-- Add overlay div after nav -->
+    <!-- Mobile Menu Overlay -->
     <div class="menu-overlay" id="menu-overlay"></div>
 
-    <!-- Update mobile menu HTML -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="text-white">
-        <button id="close-menu" class="text-white text-3xl self-end absolute top-4 right-4">&times;</button>
-        <div class="flex flex-col space-y-4 mt-8">
-            <a href="index.html" class="hover:text-green-400">Home</a>
-            <a href="testimonials.html" class="hover:text-green-400">Showcase</a>
-            <a href="events.html" class="hover:text-green-400">Events</a>
-            <a href="team.html" class="hover:text-green-400">Team & Partners</a>
-            <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 text-center">Social Profiles</a>
+        <button id="close-menu" class="text-white text-3xl self-end absolute top-4 right-4 hover:text-green-400 transition-colors">&times;</button>
+        <div class="flex flex-col space-y-6 mt-12">
+            <a href="index.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Home</a>
+            <a href="testimonials.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Showcase</a>
+            <a href="events.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Events</a>
+            <a href="team.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Team & Partners</a>
+            <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 text-center font-medium mt-4">Social Profiles</a>
         </div>
     </div>
     
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex flex-col justify-start items-center text-center">
-        <img src="https://github.com/user-attachments/assets/1c988c13-492a-46de-ab40-024dc41be8c9" alt="Main Image" class="hero-image">
-        <div class="px-4">
-            <h2 class="text-4xl font-bold mt-4">Welcome to CareerPod Community!</h2>
-            <p class="career-buddy mt-4 text-green-600">Your Career Buddy :)</p>
-            <p class="text-gray-800 font-semibold text-justify mt-4">We are excited to have you here! At CareerPod, we are a dynamic and growing tech community dedicated to empowering students and professionals alike. Our mission is to teach, guide, and help one another as we navigate the ever-evolving tech industry. We are passionate about raising awareness of the importance of proper education, fostering open-source collaboration, and creating new opportunities for growth. Don't let time slip away—join us today and become part of a supportive community focused on knowledge-sharing, learning, and unlocking your full potential!</p>
-            <a href="#join" class="mt-6 mb-15 px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-400 inline-block">Join Now</a>
+    <section id="home" class="hero-gradient flex flex-col items-center px-4 pt-52 pb-8 relative">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Left Column - Content -->
+                <div class="text-left md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                        Welcome to <span class="text-green-500">CareerPod</span> Community!
+                    </h1>
+                    <p class="text-lg md:text-xl text-green-500 font-medium mb-6">Your Career Buddy :)</p>
+                    
+                    <div class="max-w-xl">
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                            We are excited to have you here! At CareerPod, we are a dynamic and growing tech community dedicated to empowering students and professionals alike. Our mission is to teach, guide, and help one another as we navigate the ever-evolving tech industry. We are passionate about raising awareness of the importance of proper education, fostering open-source collaboration, and creating new opportunities for growth.
+                        </p>
+                        <p class="text-gray-900 font-medium text-base mb-6">
+                            Don't let time slip away—join us today and become part of a supportive community focused on knowledge-sharing, learning, and unlocking your full potential!
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://linktr.ee/Careerpod" target="_blank" class="btn-primary px-6 py-2.5 rounded-lg text-white font-medium text-sm inline-block text-center">
+                                Join Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Image -->
+                <div class="flex justify-center md:justify-end">
+                    <img src="images/Team work-bro.svg" alt="Team Work Illustration" class="max-w-full h-auto" style="max-height: 500px; width: auto;">
+                </div>
+            </div>
         </div>
     </section>
 
-    
-
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 pt-10 mt-20">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between">
-            <div class="mb-4 md:mb-0">
-                <h3 class="text-lg">Contact Us</h3>
-                <p class="contact-info">Email : <a href="mailto:info@careerpod.com" class="text-green-400">careerpodcommunity@gmail.com</a></p>
-                <p class="contact-info">Phone : <a href="tel:+1234567890" class="text-green-400">+91 234567890</a></p>
+    <!-- Stats Section -->
+    <section id="join" class="py-12 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
+                <span class="underline decoration-green-500">Our Impact</span>
+            </h2>
+            
+            <div class="stats-wrapper mb-12">
+                <div class="stats-container">
+                    <div class="stat-card" data-target="500" data-suffix="+">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-people-fill text-green-500 text-xl"></i>
+                            <div>
+                                <div class="stat-number font-bold text-green-500">0</div>
+                                <div class="stat-label">Active Members</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" data-target="20">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-calendar-event text-green-500 text-xl"></i>
+                            <div>
+                                <div class="stat-number font-bold text-green-500">0</div>
+                                <div class="stat-label">Events Hosted</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" data-target="100" data-suffix="+">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-star-fill text-green-500 text-xl"></i>
+                            <div>
+                                <div class="stat-number font-bold text-green-500">0</div>
+                                <div class="stat-label">Success Stories</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" data-target="10" data-suffix="+">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-person-badge-fill text-green-500 text-xl"></i>
+                            <div>
+                                <div class="stat-number font-bold text-green-500">0</div>
+                                <div class="stat-label">Expert Mentors</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-4 md:mb-0 follow-us">
-                <h3>Follow Us</h3>
-                <div class="flex space-x-4">
-                    <a id="linkedin" href="https://www.linkedin.com/company/career-pod/" target="_blank">
-                        <img src="https://github.com/user-attachments/assets/e17ee72a-1d74-494b-8b3c-d4bd9bd9079c" alt="LinkedIn" class="social-icon linkedin-icon">
+            
+            <!-- CTA Content -->
+            <div class="text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900">
+                    Ready to Start Your Career Journey?
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 mb-6">
+                    Join CareerPod today and become part of a community that's dedicated to your success. Let's grow together!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="https://linktr.ee/Careerpod" target="_blank" class="btn-primary px-6 py-2.5 rounded-lg text-white font-medium text-sm inline-block text-center">
+                        Join Our Community
                     </a>
-                    <a id="youtube" href="https://www.youtube.com/@Careerpod" target="_blank">
-                        <img src="https://github.com/user-attachments/assets/750af1c5-9e97-4f5b-bf2f-9753e9360a8a" alt="YouTube" class="social-icon youtube-icon">
-                    </a>
-                    <a id="whatsapp" href="https://chat.whatsapp.com/BuyZd52KkchCSl19nzqsYr" target="_blank">
-                        <img src="https://github.com/user-attachments/assets/87ef1e57-4aa1-437d-b68d-124351a959d0" alt="WhatsApp" class="social-icon whatsapp-icon">
-                    </a>
-                    <a id="email" href="mailto:careerpodcommunity@gmail.com">
-                        <img src="https://github.com/user-attachments/assets/47c207da-6fa4-402f-a7ad-73df065f6b5c" alt="Gmail" class="social-icon gmail-icon">
-                    </a>
-                    <a id="instagram" href="https://www.instagram.com/careerpod_community" target="_blank">
-                        <img src="https://github.com/user-attachments/assets/2ae7eac7-0908-4b36-82e2-488c603afdf0" alt="Instagram" class="social-icon">
-                    </a>
-                    <a id="topmate" href="https://topmate.io/m_raghul" target="_blank">
-                        <img src="https://github.com/user-attachments/assets/6a114b06-7d73-4b5b-901d-35c8d113f2b5" alt="Topmate" class="social-icon"> <!-- Topmate custom image -->
+                    <a href="events.html" class="px-6 py-2.5 rounded-lg text-gray-900 font-medium text-sm border border-green-500 hover:bg-green-500 hover:text-white transition-all inline-block text-center">
+                        View Upcoming Events
                     </a>
                 </div>
             </div>
-            <div>
-                <h3 class="text-lg">Location</h3>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-2 text-gray-900">
+                Why Choose <span class="text-green-500">CareerPod</span>?
+            </h2>
+            <p class="text-center text-gray-600 text-sm mb-10 max-w-2xl mx-auto">
+                We provide comprehensive support for your tech career journey
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-people-fill text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Expert Mentorship</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Connect with industry professionals and experienced mentors who guide you through your career journey with personalized advice and support.
+                    </p>
+                </div>
                 
-                <p>Chennai, Tamilnadu, India</p>
+                <!-- Feature 2 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-book-fill text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Learning Resources</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Access workshops, bootcamps, and educational content designed to help you master the skills needed in today's tech industry.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-briefcase-fill text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Career Growth</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Unlock new opportunities through networking events, job referrals, and career guidance that helps you achieve your professional goals.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-code-slash text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Open Source</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Contribute to open-source projects and collaborate with fellow developers to build real-world experience and portfolio.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-calendar-event text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Regular Events</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Participate in hackathons, workshops, webinars, and networking meetups to stay updated with the latest tech trends.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card p-6 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-4">
+                        <i class="bi bi-heart-fill text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Supportive Community</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Join a welcoming community where members help each other grow, share knowledge, and celebrate each other's successes.
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="text-center mt-4">
-            <p>&copy; 2025 CareerPod. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-10 px-4 border-t-2 border-green-500">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-8">
+                <!-- Logo/Brand -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-2 text-green-400">CareerPod</h3>
+                    <p class="text-gray-400 text-xs">Your Career Buddy</p>
+            </div>
+                
+                <!-- Social Links -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.linkedin.com/company/career-pod/" target="_blank" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="LinkedIn">
+                        <img src="https://github.com/user-attachments/assets/e17ee72a-1d74-494b-8b3c-d4bd9bd9079c" alt="LinkedIn" class="w-full h-full">
+                    </a>
+                    <a href="https://www.youtube.com/@Careerpod" target="_blank" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="YouTube">
+                        <img src="https://github.com/user-attachments/assets/750af1c5-9e97-4f5b-bf2f-9753e9360a8a" alt="YouTube" class="w-full h-full">
+                    </a>
+                    <a href="https://chat.whatsapp.com/BuyZd52KkchCSl19nzqsYr" target="_blank" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="WhatsApp">
+                        <img src="https://github.com/user-attachments/assets/87ef1e57-4aa1-437d-b68d-124351a959d0" alt="WhatsApp" class="w-full h-full">
+                    </a>
+                    <a href="mailto:careerpodcommunity@gmail.com" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="Email">
+                        <img src="https://github.com/user-attachments/assets/47c207da-6fa4-402f-a7ad-73df065f6b5c" alt="Gmail" class="w-full h-full">
+                    </a>
+                    <a href="https://www.instagram.com/careerpod_community" target="_blank" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="Instagram">
+                        <img src="https://github.com/user-attachments/assets/2ae7eac7-0908-4b36-82e2-488c603afdf0" alt="Instagram" class="w-full h-full">
+                    </a>
+                    <a href="https://topmate.io/m_raghul" target="_blank" class="w-8 h-8 hover:opacity-70 transition-opacity hover:scale-110" title="Topmate">
+                        <img src="https://github.com/user-attachments/assets/6a114b06-7d73-4b5b-901d-35c8d113f2b5" alt="Topmate" class="w-full h-full">
+                    </a>
+                </div>
+                
+                <!-- Contact -->
+                <div class="text-center md:text-right">
+                    <a href="mailto:careerpodcommunity@gmail.com" class="text-gray-400 text-xs hover:text-green-400 transition-colors block mb-1">
+                        careerpodcommunity@gmail.com
+                    </a>
+                    <p class="text-gray-400 text-xs">Chennai, Tamil Nadu</p>
+                </div>
+            </div>
+                
+            <div class="border-t border-green-500/20 pt-6 text-center">
+                <p class="text-gray-500 text-xs">&copy; 2025 <span class="text-green-400">CareerPod</span></p>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById("menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
         const closeMenu = document.getElementById("close-menu");
@@ -251,17 +529,87 @@
         menuBtn.addEventListener("click", function() {
             mobileMenu.classList.add("active");
             menuOverlay.classList.add("active");
-            document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+            document.body.style.overflow = "hidden";
         });
 
         function closeMenuHandler() {
             mobileMenu.classList.remove("active");
             menuOverlay.classList.remove("active");
-            document.body.style.overflow = ""; // Restore scrolling
+            document.body.style.overflow = "";
         }
 
         closeMenu.addEventListener("click", closeMenuHandler);
         menuOverlay.addEventListener("click", closeMenuHandler);
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Counter animation for stats
+        function animateCounter(element, target, suffix = '') {
+            const duration = 1500;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + suffix;
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            };
+            
+            updateCounter();
+        }
+        
+        // Intersection Observer for stats animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                    entry.target.classList.add('visible');
+                    
+                    // Delay each card animation slightly
+                    setTimeout(() => {
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        const suffix = entry.target.getAttribute('data-suffix') || '';
+                        
+                        if (statNumber && target) {
+                            animateCounter(statNumber, target, suffix);
+                        }
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        
+        // Observe all stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
     </script>
 </body>
 </html>

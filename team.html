@@ -3,95 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <title>About Us - CareerPod</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Team & Partners - CareerPod</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
     <style>
         :root {
             --primary-color: #00bf63;
+            --primary-dark: #00a050;
         }
+        
         body {
             font-family: 'Roboto', sans-serif;
         }
+        
+        nav {
+            backdrop-filter: blur(10px);
+        }
+        
         .team-card {
-            transition: transform 0.3s ease;
+            transition: all 0.2s ease;
+            background: white;
+            border: 1px solid #e5e7eb;
         }
+        
         .team-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 191, 99, 0.1);
         }
+        
+        .team-image {
+            transition: all 0.2s ease;
+        }
+        
+        .team-card:hover .team-image {
+            transform: scale(1.02);
+        }
+        
         .partner-logo {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             filter: grayscale(100%);
+            opacity: 0.7;
+            background: white;
+            border: 1px solid #e5e7eb;
         }
+        
         .partner-logo:hover {
             filter: grayscale(0%);
+            opacity: 1;
             transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+        
+        .section-header {
+            background: rgba(0, 191, 99, 0.05);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        /* Mobile Menu */
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            z-index: 9999;
+            display: none;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-linkedin {
+            background: #0077b5;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-linkedin:hover {
+            background: #005885;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-black flex flex-col min-h-screen">
     <!-- Navbar -->
-    <nav class="p-5 bg-black flex justify-between items-center">
-        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto">
+    <nav class="fixed top-0 left-0 right-0 p-5 bg-black flex justify-between items-center z-50">
+        <img src="https://github.com/user-attachments/assets/023e3e3e-1246-49f6-ae8b-54e05fec0c96" alt="CareerPod Logo" class="h-14 w-auto cursor-pointer" onclick="window.location.href='index.html'">
+        
         <div class="md:hidden">
-            <button id="menu-btn" class="text-white text-3xl focus:outline-none">
+            <button id="menu-btn" class="text-white text-3xl focus:outline-none transition-transform hover:scale-110">
                 &#9776;
             </button>
         </div>
-        <ul id="menu" class="hidden md:flex space-x-6">
-            <li><a href="index.html" class="hover:text-green-400 text-white">Home</a></li>
-            <li><a href="testimonials.html" class="hover:text-green-400 text-white">Showcase</a></li>
-            <li><a href="events.html" class="hover:text-green-400 text-white">Events</a></li>
-            <li><a href="team.html" class="hover:text-green-400 text-white">Team & Partners</a></li>
-            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400">Social Profiles</a></li>
+        
+        <ul id="menu" class="hidden md:flex space-x-6 items-center">
+            <li><a href="index.html" class="hover:text-green-400 text-white transition-colors font-medium">Home</a></li>
+            <li><a href="testimonials.html" class="hover:text-green-400 text-white transition-colors font-medium">Showcase</a></li>
+            <li><a href="events.html" class="hover:text-green-400 text-white transition-colors font-medium">Events</a></li>
+            <li><a href="team.html" class="text-green-400 text-white transition-colors font-medium">Team & Partners</a></li>
+            <li><a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 transition-all font-medium">Social Profiles</a></li>
         </ul>
     </nav>
     
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 left-0 w-1/2 h-full bg-black text-white hidden flex flex-col p-5 space-y-4">
-        <button id="close-menu" class="text-white text-3xl self-end">&times;</button>
-        <a href="index.html" class="hover:text-green-400">Home</a>
-        <a href="testimonials.html" class="hover:text-green-400">Showcase</a>
-        <a href="events.html" class="hover:text-green-400">Events</a>
-        <a href="team.html" class="hover:text-green-400">Team & Partners</a>
-        <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 text-center">Social Profiles</a>
+    <div id="mobile-menu" class="text-white">
+        <button id="close-menu" class="text-white text-3xl self-end absolute top-4 right-4 hover:text-green-400 transition-colors">&times;</button>
+        <div class="flex flex-col space-y-6 mt-12">
+            <a href="index.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Home</a>
+            <a href="testimonials.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Showcase</a>
+            <a href="events.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Events</a>
+            <a href="team.html" class="hover:text-green-400 transition-colors text-lg font-medium py-2 border-b border-gray-800">Team & Partners</a>
+            <a href="https://linktr.ee/Careerpod" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-400 text-center font-medium mt-4">Social Profiles</a>
+        </div>
     </div>
     
+    <!-- Hero Section -->
+    <section class="pt-40 pb-10 px-4 bg-white text-black">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                Meet Our <span class="text-green-500">Team</span>
+            </h1>
+            <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                Passionate individuals dedicated to empowering your tech career journey
+            </p>
+        </div>
+    </section>
+    
     <!-- Team Section -->
-    <section id="about" class="p-10 text-center flex-grow">
-        <h2 class="text-4xl font-bold mb-12 text-green-500">Meet Our Team</h2>
-        <div class="flex flex-wrap justify-center gap-12 max-w-7xl mx-auto">
-            <!-- Team Member 1 -->
-            <div class="team-card bg-white p-8 rounded-xl shadow-lg w-full md:w-[600px] text-center">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <img src="https://github.com/user-attachments/assets/d59ecfe5-6e9b-475d-adb2-d65315151a34" 
-                         alt="Raghul M" 
-                         class="rounded-full w-48 h-48 object-cover border-4 border-green-500">
-                    <div class="text-left">
-                        <h3 class="text-2xl font-bold text-green-500 mb-2">Raghul M</h3>
-                        <p class="text-xl font-semibold mb-2">Founder</p>
-                        <p class="text-gray-600 mb-4">A passionate tech enthusiast and community builder with 3+ years of experience in the software industry. Dedicated to helping students and professionals navigate their tech careers.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/in/m-raghul/" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+    <section id="about" class="py-12 px-4 flex-grow">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Team Member 1 -->
+                <div class="team-card p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <img src="https://github.com/user-attachments/assets/d59ecfe5-6e9b-475d-adb2-d65315151a34" 
+                             alt="Raghul M" 
+                             class="team-image rounded-full w-32 h-32 object-cover border-3 border-green-500">
+                        <div class="text-center md:text-left flex-grow">
+                            <h3 class="text-xl font-bold text-green-500 mb-1">Raghul M</h3>
+                            <p class="text-base font-semibold mb-2 text-gray-700">Founder</p>
+                            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                                A passionate tech enthusiast and community builder with 3+ years of experience in the software industry. Dedicated to helping students and professionals navigate their tech careers with expert guidance and mentorship.
+                            </p>
+                            <a href="https://www.linkedin.com/in/m-raghul/" target="_blank" class="btn-linkedin text-white px-4 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-2">
+                                <i class="bi bi-linkedin"></i>
                                 Connect on LinkedIn
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Team Member 2 -->
-            <div class="team-card bg-white p-8 rounded-xl shadow-lg w-full md:w-[600px] text-center">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <img src="https://github.com/user-attachments/assets/8675e383-e744-4293-94e6-66111e9445c0" 
-                         alt="Swetha Maran" 
-                         class="rounded-full w-48 h-48 object-cover border-4 border-green-500">
-                    <div class="text-left">
-                        <h3 class="text-2xl font-bold text-green-500 mb-2">Swetha Maran</h3>
-                        <p class="text-xl font-semibold mb-2">Community Manager</p>
-                        <p class="text-gray-600 mb-4">An experienced community leader with a passion for bringing people together. Focused on creating meaningful connections and fostering growth within the tech community.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.linkedin.com/in/swethamaran/" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                <!-- Team Member 2 -->
+                <div class="team-card p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <img src="https://github.com/user-attachments/assets/8675e383-e744-4293-94e6-66111e9445c0" 
+                             alt="Swetha Maran" 
+                             class="team-image rounded-full w-32 h-32 object-cover border-3 border-green-500">
+                        <div class="text-center md:text-left flex-grow">
+                            <h3 class="text-xl font-bold text-green-500 mb-1">Swetha Maran</h3>
+                            <p class="text-base font-semibold mb-2 text-gray-700">Community Manager</p>
+                            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                                An experienced community leader with a passion for bringing people together. Focused on creating meaningful connections and fostering growth within the tech community through engaging events and initiatives.
+                            </p>
+                            <a href="https://www.linkedin.com/in/swethamaran/" target="_blank" class="btn-linkedin text-white px-4 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-2">
+                                <i class="bi bi-linkedin"></i>
                                 Connect on LinkedIn
                             </a>
                         </div>
@@ -102,34 +217,127 @@
     </section>
     
     <!-- Community Partners Section -->
-    <section id="partners" class="p-10 bg-white text-black">
-        <h2 class="text-4xl font-bold mb-12 text-center text-green-500">Our Community Partners</h2>
-        <div class="flex flex-wrap justify-center items-center gap-12 max-w-6xl mx-auto">
-            <!-- Partner Logos -->
-            <a href="#" class="partner-logo w-48 h-48 bg-white rounded-lg p-4 flex items-center justify-center shadow-lg hover:shadow-xl">
-                <img src="https://placehold.co/150x150" alt="Partner 1" class="max-w-full max-h-full">
-            </a>
-            <a href="#" class="partner-logo w-48 h-48 bg-white rounded-lg p-4 flex items-center justify-center shadow-lg hover:shadow-xl">
-                <img src="https://placehold.co/150x150" alt="Partner 2" class="max-w-full max-h-full">
-            </a>
-            <a href="#" class="partner-logo w-48 h-48 bg-white rounded-lg p-4 flex items-center justify-center shadow-lg hover:shadow-xl">
-                <img src="https://placehold.co/150x150" alt="Partner 3" class="max-w-full max-h-full">
-            </a>
+    <section id="partners" class="py-12 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="section-header p-4 rounded-lg mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
+                    Our <span class="text-green-500">Community Partners</span>
+                </h2>
+                <p class="text-gray-600 text-sm">
+                    Collaborating with amazing organizations to bring you the best opportunities
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Partner Logo 1 -->
+                <a href="#" class="partner-logo rounded-lg p-4 flex items-center justify-center shadow-sm min-h-[100px]">
+                    <img src="https://placehold.co/150x150/00bf63/ffffff?text=Partner+1" alt="Partner 1" class="max-w-full max-h-full object-contain">
+                </a>
+                
+                <!-- Partner Logo 2 -->
+                <a href="#" class="partner-logo rounded-lg p-4 flex items-center justify-center shadow-sm min-h-[100px]">
+                    <img src="https://placehold.co/150x150/00bf63/ffffff?text=Partner+2" alt="Partner 2" class="max-w-full max-h-full object-contain">
+                </a>
+                
+                <!-- Partner Logo 3 -->
+                <a href="#" class="partner-logo rounded-lg p-4 flex items-center justify-center shadow-sm min-h-[100px]">
+                    <img src="https://placehold.co/150x150/00bf63/ffffff?text=Partner+3" alt="Partner 3" class="max-w-full max-h-full object-contain">
+                </a>
+                
+                <!-- Partner Logo 4 -->
+                <a href="#" class="partner-logo rounded-lg p-4 flex items-center justify-center shadow-sm min-h-[100px]">
+                    <img src="https://placehold.co/150x150/00bf63/ffffff?text=Partner+4" alt="Partner 4" class="max-w-full max-h-full object-contain">
+                </a>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-gray-600 text-sm mb-3">Interested in partnering with us?</p>
+                <a href="mailto:careerpodcommunity@gmail.com" class="inline-block bg-green-500 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-green-400 transition-all">
+                    Get in Touch
+                </a>
+            </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="text-center p-5 bg-black text-white mt-auto">
-        <p>&copy; 2025 CareerPod. All rights reserved.</p>
+    <footer class="bg-black text-white py-8 px-4 mt-auto">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div>
+                    <h3 class="text-base font-bold mb-3 text-green-400">Contact Us</h3>
+                    <p class="text-gray-300 text-sm mb-2">
+                        <i class="bi bi-envelope-fill mr-2 text-green-400"></i>
+                        <a href="mailto:careerpodcommunity@gmail.com" class="hover:text-green-400 transition-colors">
+                            careerpodcommunity@gmail.com
+                        </a>
+                    </p>
+                    <p class="text-gray-300 text-sm">
+                        <i class="bi bi-telephone-fill mr-2 text-green-400"></i>
+                        <a href="tel:+91234567890" class="hover:text-green-400 transition-colors">
+                            +91 234567890
+                        </a>
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-base font-bold mb-3 text-green-400">Follow Us</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.linkedin.com/company/career-pod/" target="_blank" class="w-6 h-6 hover:scale-110 transition-transform" title="LinkedIn">
+                            <img src="https://github.com/user-attachments/assets/e17ee72a-1d74-494b-8b3c-d4bd9bd9079c" alt="LinkedIn" class="w-full h-full">
+                        </a>
+                        <a href="https://www.youtube.com/@Careerpod" target="_blank" class="w-6 h-6 hover:scale-110 transition-transform" title="YouTube">
+                            <img src="https://github.com/user-attachments/assets/750af1c5-9e97-4f5b-bf2f-9753e9360a8a" alt="YouTube" class="w-full h-full">
+                        </a>
+                        <a href="https://chat.whatsapp.com/BuyZd52KkchCSl19nzqsYr" target="_blank" class="w-6 h-6 hover:scale-110 transition-transform" title="WhatsApp">
+                            <img src="https://github.com/user-attachments/assets/87ef1e57-4aa1-437d-b68d-124351a959d0" alt="WhatsApp" class="w-full h-full">
+                        </a>
+                        <a href="mailto:careerpodcommunity@gmail.com" class="w-6 h-6 hover:scale-110 transition-transform" title="Email">
+                            <img src="https://github.com/user-attachments/assets/47c207da-6fa4-402f-a7ad-73df065f6b5c" alt="Gmail" class="w-full h-full">
+                        </a>
+                        <a href="https://www.instagram.com/careerpod_community" target="_blank" class="w-6 h-6 hover:scale-110 transition-transform" title="Instagram">
+                            <img src="https://github.com/user-attachments/assets/2ae7eac7-0908-4b36-82e2-488c603afdf0" alt="Instagram" class="w-full h-full">
+                        </a>
+                        <a href="https://topmate.io/m_raghul" target="_blank" class="w-6 h-6 hover:scale-110 transition-transform" title="Topmate">
+                            <img src="https://github.com/user-attachments/assets/6a114b06-7d73-4b5b-901d-35c8d113f2b5" alt="Topmate" class="w-full h-full">
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-base font-bold mb-3 text-green-400">Location</h3>
+                    <p class="text-gray-300 text-sm">
+                        <i class="bi bi-geo-alt-fill mr-2 text-green-400"></i>
+                        Chennai, Tamil Nadu, India
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 CareerPod. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        document.getElementById("menu-btn").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.remove("hidden");
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenu = document.getElementById("close-menu");
+        const menuOverlay = document.getElementById("menu-overlay");
+
+        menuBtn.addEventListener("click", function() {
+            mobileMenu.classList.add("active");
+            menuOverlay.classList.add("active");
+            document.body.style.overflow = "hidden";
         });
-        document.getElementById("close-menu").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.add("hidden");
-        });
+
+        function closeMenuHandler() {
+            mobileMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        closeMenu.addEventListener("click", closeMenuHandler);
+        menuOverlay.addEventListener("click", closeMenuHandler);
     </script>
 </body>
 </html>
